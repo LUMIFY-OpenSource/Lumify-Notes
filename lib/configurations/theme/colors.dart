@@ -85,7 +85,7 @@ class AppColors {
   static const Color outlineVariant = Color(0xffC4C6D0);
 
   // Dark theme colors
-  static const Color primaryDark = Color(0xff407BFF);
+  static const Color primaryDark = Color(0xff000000);
   static const Color onPrimaryDark = Color(0xffE5DEFF);
   static const Color primaryContainerDark = Colors.green;
   static const Color onPrimaryContainerDark = Color(0xffE5DEFF);
