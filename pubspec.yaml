@@ -1,0 +1,82 @@
+name: lumify_notes
+description: "Note taking application with advanced features made with flutter"
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.6 <4.0.0'
+
+dependencies:
+  auto_route: ^7.8.0
+  cached_network_image: ^3.3.0
+  djangoflow_app: ^3.2.0
+  djangoflow_app_links: ^1.2.0
+  flex_color_scheme: ^7.3.1
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.3
+  flutter_expandable_fab: ^2.0.0
+  flutter_localizations:
+    sdk: flutter
+  font_awesome_flutter: ^10.5.0
+  freezed_annotation: ^2.4.1
+  hydrated_bloc: ^9.1.2
+  image_picker: ^1.0.7
+  intl: ^0.19.0
+  json_annotation: ^4.8.1
+  progress_builder: ^1.1.3
+  responsive_framework: ^1.1.0
+  shimmer: ^3.0.0
+  url_launcher: ^6.1.12
+
+dev_dependencies:
+  auto_route_generator: ^7.3.0
+  build_runner: ^2.4.4
+  flutter_gen_runner: ^5.3.1
+  flutter_launcher_icons: ^0.13.1
+  flutter_lints: ^2.0.1
+  flutter_test:
+    sdk: flutter
+  freezed: ^2.3.4
+  json_serializable: ^6.7.0
+
+
+#flutter:
+#  uses-material-design: true
+#  assets:
+#    - assets/images/
+#  fonts:
+#    - family: Quando
+#      fonts:
+#        - asset: assets/fonts/Quando-Regular.ttf
+#    - family: Roboto
+#      fonts:
+#        - asset: assets/fonts/Roboto-Regular.ttf
+
+
+flutter_gen:
+  output: lib/configurations/constants
+  integrations:
+    flutter_svg: true
+
+
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app_icon.png"
+  min_sdk_android: 19
