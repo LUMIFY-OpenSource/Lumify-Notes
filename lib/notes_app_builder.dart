@@ -17,7 +17,9 @@ class LumifyNotesAppBuilder extends AppBuilder {
     required AppLinksRepository appLinksRepository,
     final String? initialDeepLink,
   }) : super(
-          onInitState: (context) {},
+          onInitState: (context) {
+            context.read<AppCubit>().updateThemeMode(ThemeMode.dark);
+          },
           repositoryProviders: [
             RepositoryProvider<AppLinksRepository>.value(
               value: appLinksRepository,

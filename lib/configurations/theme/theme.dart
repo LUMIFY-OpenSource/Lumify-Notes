@@ -85,7 +85,7 @@ class AppTheme {
     final colorScheme = AppColors.darkColorScheme;
     final theme = FlexThemeData.dark(
       colorScheme: colorScheme,
-      applyElevationOverlayColor: true,
+      applyElevationOverlayColor: false,
       textTheme: AppTextStyle.textTheme.apply(
         bodyColor: colorScheme.onSurface,
         displayColor: colorScheme.onSurface,
@@ -100,7 +100,7 @@ class AppTheme {
       useMaterial3: true,
       surfaceMode: FlexSurfaceMode.level,
       subThemesData: _commonSubThemeData,
-      scaffoldBackground: AppColors.surfaceDark,
+      scaffoldBackground: AppColors.primaryDark,
       appBarStyle: FlexAppBarStyle.background,
     );
     return theme.copyWith(

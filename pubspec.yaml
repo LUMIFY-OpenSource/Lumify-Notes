@@ -21,6 +21,7 @@ environment:
   sdk: '>=3.0.6 <4.0.0'
 
 dependencies:
+  animations: ^2.0.11
   auto_route: ^7.8.0
   cached_network_image: ^3.3.0
   djangoflow_app: ^3.2.0
@@ -55,8 +56,8 @@ dev_dependencies:
   json_serializable: ^6.7.0
 
 
-#flutter:
-#  uses-material-design: true
+flutter:
+  uses-material-design: true
 #  assets:
 #    - assets/images/
 #  fonts:

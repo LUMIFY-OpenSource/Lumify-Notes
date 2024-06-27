@@ -25,7 +25,7 @@ class LumifyNotesAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Padding(
       padding: const EdgeInsets.all(kPadding),
       child: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: theme.primaryColor,
         leadingWidth: kPadding * 6,
         elevation: elevation,
         centerTitle: centerTitle,
@@ -36,7 +36,7 @@ class LumifyNotesAppBar extends StatelessWidget implements PreferredSizeWidget {
             ? Text(
                 appBarTitleText!,
                 style: theme.textTheme.headlineSmall?.copyWith(
-                  color: theme.primaryColor,
+                  color: theme.colorScheme.onPrimary,
                   // fontFamily: kBrandFontFamily,
                   fontWeight: FontWeight.w500,
                 ),

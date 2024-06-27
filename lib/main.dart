@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:djangoflow_app/djangoflow_app.dart';
 import 'package:djangoflow_app_links/djangoflow_app_links.dart';
 import 'package:flutter/foundation.dart';
+import 'package:djangoflow_app/djangoflow_app.dart' as df_app;
 
 import 'configurations/configurations.dart';
 import 'notes_app_builder.dart';
@@ -17,7 +18,7 @@ Future<void> main() async {
         ExceptionFormatter.format(exception),
       );
     },
-    rootWidgetBuilder: (appBuilder) async {
+    rootWidgetBuilder: (appBuilder) async{
       String? initialDeepLink;
       final appLinksRepository = AppLinksRepository();
 
