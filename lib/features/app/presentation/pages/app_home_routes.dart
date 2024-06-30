@@ -3,7 +3,11 @@ import '../../../../configurations/configurations.dart';
 final appHomeRoutes = [
   AutoRoute(
     initial: true,
-    path: 'home',
-    page: HomeRoute.page,
+    path: 'notebooks',
+    page: NotebookRoute.page,
+  ),
+  AutoRoute(
+    path: 'notes',
+    page: NoteRoute.page,
   ),
 ];

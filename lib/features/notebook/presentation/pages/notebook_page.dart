@@ -5,8 +5,8 @@ import '../../../../configurations/configurations.dart';
 import '../notes_grid_view.dart';
 
 @RoutePage()
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class NotebookPage extends StatelessWidget {
+  const NotebookPage({super.key});
 
   @override
   Widget build(BuildContext context) {

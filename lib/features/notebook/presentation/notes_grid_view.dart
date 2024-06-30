@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lumify_notes/configurations/configurations.dart';
-import 'package:lumify_notes/features/home/presentation/single_note_card.dart';
+import 'package:lumify_notes/features/notebook/presentation/single_note_card.dart';
 
 class _NoteData {
   final String title;
