@@ -26,7 +26,10 @@ class AppHomeToolbar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             GestureDetector(
               onTap: () {},
-              child: const Icon(Icons.settings_rounded),
+              child: const Icon(
+                Icons.settings_rounded,
+                size: 26,
+              ),
             ),
             const Spacer(),
             _TabToggleButton(
@@ -48,6 +51,7 @@ class AppHomeToolbar extends StatelessWidget implements PreferredSizeWidget {
                   child: Center(
                     child: Icon(
                       Icons.search_rounded,
+                      size: 26,
                     ),
                   ),
                 );
@@ -77,11 +81,11 @@ class _TabToggleButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // height: 34,
-      width: kPadding * 15,
+      width: kPadding * 18,
       //margin: EdgeInsets.all(70),
       decoration: BoxDecoration(
         color: const Color(0xff3B3B3B),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
@@ -91,14 +95,20 @@ class _TabToggleButton extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {},
-                child: const Icon(Icons.folder),
+                child: const Icon(
+                  Icons.folder,
+                  size: 24,
+                ),
               ),
               const VerticalDivider(
                 color: Colors.white,
               ),
               GestureDetector(
                 onTap: () {},
-                child: const Icon(Icons.note_add),
+                child: const Icon(
+                  Icons.note_add,
+                  size: 24,
+                ),
               ),
             ],
           ),
