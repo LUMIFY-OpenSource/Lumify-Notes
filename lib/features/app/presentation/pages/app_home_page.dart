@@ -3,6 +3,7 @@ import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 import 'package:lumify_notes/features/app/app.dart';
 
 import '../../../../configurations/configurations.dart';
+import '../app_home_toolbar.dart';
 
 @RoutePage()
 class AppHomePage extends StatelessWidget implements AutoRouteWrapper {
@@ -51,10 +52,9 @@ class AppHomePage extends StatelessWidget implements AutoRouteWrapper {
       },
       animationCurve: Curves.easeInOut,
       resizeToAvoidBottomInset: false,
-      appBarBuilder: (context, tabsRouter) => const LumifyNotesAppBar(
-        centerTitle: true,
-        appBarTitleText: kAppBarTitle,
-      ),
+      appBarBuilder: (context, tabsRouter) {
+        return AppHomeToolbar(selectedIndex: tabsRouter.activeIndex, activeIconColor: '',);
+      }
     );
   }
 

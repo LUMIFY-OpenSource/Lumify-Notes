@@ -15,41 +15,14 @@ class NotebookPage extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height,
       padding: const EdgeInsets.all(kPadding),
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.settings_rounded),
-              ),
-              OpenContainer(
-                transitionType: ContainerTransitionType.fadeThrough,
-                openBuilder: (BuildContext context, VoidCallback _) {
-                  return const Scaffold(
-                    body: Text("Coming Soon"),
-                  );
-                },
-                closedColor: Theme.of(context).primaryColor,
-                closedBuilder: (BuildContext context, VoidCallback openContainer) {
-                  return const SizedBox(
-                    height: 32,
-                    width: 32,
-                    child: Center(
-                      child: Icon(
-                        Icons.search_rounded,
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
-          const SizedBox(
+
+          SizedBox(
             height: 10,
           ),
-          const Expanded(
+          Expanded(
             child: NotesGridView(),
           ),
         ],
