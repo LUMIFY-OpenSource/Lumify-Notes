@@ -79,6 +79,7 @@ class _TabToggleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final autoTabRouter = AutoTabsRouter.of(context);
     return Container(
       // height: 34,
       width: kPadding * 18,
@@ -94,20 +95,26 @@ class _TabToggleButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               GestureDetector(
-                onTap: () {},
-                child: const Icon(
+                onTap: () {
+                  autoTabRouter.setActiveIndex(0);
+                },
+                child: Icon(
                   Icons.folder,
                   size: 24,
+                  color: selectedIndex == 0 ? Colors.yellow : Colors.white,
                 ),
               ),
               const VerticalDivider(
                 color: Colors.white,
               ),
               GestureDetector(
-                onTap: () {},
-                child: const Icon(
+                onTap: () {
+                  autoTabRouter.setActiveIndex(1);
+                },
+                child: Icon(
                   Icons.note_add,
                   size: 24,
+                  color: selectedIndex == 1 ? Colors.yellow : Colors.white,
                 ),
               ),
             ],

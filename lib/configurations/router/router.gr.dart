@@ -18,10 +18,10 @@ import 'package:lumify_notes/features/authentication/presentation/pages/login_op
     deferred as _i2;
 import 'package:lumify_notes/features/authentication/presentation/pages/login_router_page.dart'
     deferred as _i3;
-import 'package:lumify_notes/features/notebook/presentation/pages/note_page.dart'
-    deferred as _i4;
 import 'package:lumify_notes/features/notebook/presentation/pages/notebook_page.dart'
     deferred as _i5;
+import 'package:lumify_notes/features/notes/presentation/pages/note_page.dart'
+    deferred as _i4;
 
 abstract class $AppRouter extends _i7.RootStackRouter {
   $AppRouter({super.navigatorKey});

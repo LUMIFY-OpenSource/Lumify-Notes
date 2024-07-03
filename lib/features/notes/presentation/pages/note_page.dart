@@ -1,13 +1,13 @@
 import 'package:animations/animations.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../configurations/configurations.dart';
-import '../notebook_grid_view.dart';
+import '../../../notebook/presentation/notebook_grid_view.dart';
+import '../notes_grid_view.dart';
 
 @RoutePage()
-class NotebookPage extends StatelessWidget {
-  const NotebookPage({super.key});
+class NotePage extends StatelessWidget {
+  const NotePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +20,11 @@ class NotebookPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(kPadding * 1.5),
             child: Row(
               children: [
                 const Text(
-                  'Notebooks',
+                  'Notes',
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.w700,
@@ -35,7 +35,17 @@ class NotebookPage extends StatelessWidget {
                   onTap: () {},
                   child: const Icon(
                     Icons.sort_rounded,
-                    size: 30,
+                    size: kPadding * 3.5,
+                  ),
+                ),
+                const SizedBox(
+                  width: kPadding * 2,
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: const Icon(
+                    Icons.check_circle_outline_rounded,
+                    size: kPadding * 3.5,
                   ),
                 ),
               ],
@@ -45,7 +55,7 @@ class NotebookPage extends StatelessWidget {
             height: 10,
           ),
           const Expanded(
-            child: NotebookGridView(),
+            child: NotesGridView(),
           ),
         ],
       ),
