@@ -16,6 +16,8 @@ class AppHomePage extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final primary = theme.colorScheme.primary;
+    final onPrimary = theme.colorScheme.onPrimary;
 
     return AutoTabsScaffold(
       routes: const [
@@ -53,8 +55,44 @@ class AppHomePage extends StatelessWidget implements AutoRouteWrapper {
       animationCurve: Curves.easeInOut,
       resizeToAvoidBottomInset: false,
       appBarBuilder: (context, tabsRouter) {
-        return AppHomeToolbar(selectedIndex: tabsRouter.activeIndex, activeIconColor: '',);
-      }
+        return AppHomeToolbar(
+          selectedIndex: tabsRouter.activeIndex,
+          activeIconColor: '',
+        );
+      },
+      floatingActionButtonBuilder: (context, tabsRouter) {
+        return ExpandableFab(
+          openButtonBuilder: RotateFloatingActionButtonBuilder(
+            child: const Icon(Icons.add),
+            fabSize: ExpandableFabSize.regular,
+            foregroundColor: primary,
+            backgroundColor: onPrimary,
+            shape: const CircleBorder(),
+          ),
+          closeButtonBuilder: DefaultFloatingActionButtonBuilder(
+            child: const Icon(Icons.close),
+            fabSize: ExpandableFabSize.small,
+            foregroundColor: primary,
+            backgroundColor: onPrimary,
+            shape: const CircleBorder(),
+          ),
+          children: [
+            FloatingActionButton(
+              onPressed: () {},
+              child: Icon(Icons.note_add),
+              foregroundColor: primary,
+              backgroundColor: onPrimary,
+            ),
+            FloatingActionButton(
+              onPressed: () {},
+              child: Icon(Icons.folder_open_rounded),
+              foregroundColor: primary,
+              backgroundColor: onPrimary,
+            ),
+          ],
+        );
+      },
+      floatingActionButtonLocation: ExpandableFab.location,
     );
   }
 

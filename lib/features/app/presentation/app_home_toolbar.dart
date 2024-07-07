@@ -99,9 +99,10 @@ class _TabToggleButton extends StatelessWidget {
                   autoTabRouter.setActiveIndex(0);
                 },
                 child: Icon(
-                  Icons.folder,
-                  size: 24,
-                  color: selectedIndex == 0 ? Colors.yellow : Colors.white,
+                  selectedIndex == 0
+                      ? Icons.folder_copy_rounded
+                      : Icons.folder_copy_outlined,
+                  size: kPadding * 3,
                 ),
               ),
               const VerticalDivider(
@@ -112,9 +113,10 @@ class _TabToggleButton extends StatelessWidget {
                   autoTabRouter.setActiveIndex(1);
                 },
                 child: Icon(
-                  Icons.note_add,
-                  size: 24,
-                  color: selectedIndex == 1 ? Colors.yellow : Colors.white,
+                  selectedIndex == 1
+                      ? Icons.sticky_note_2_rounded
+                      : Icons.sticky_note_2_outlined,
+                  size: kPadding * 3,
                 ),
               ),
             ],
