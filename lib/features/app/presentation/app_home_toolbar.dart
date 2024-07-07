@@ -69,7 +69,6 @@ class AppHomeToolbar extends StatelessWidget implements PreferredSizeWidget {
 
 class _TabToggleButton extends StatelessWidget {
   const _TabToggleButton({
-    super.key,
     required this.selectedIndex,
     required this.activeIconColor,
   });
