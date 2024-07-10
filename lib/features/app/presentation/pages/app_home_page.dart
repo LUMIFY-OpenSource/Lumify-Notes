@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 import 'package:lumify_notes/features/app/app.dart';
+import 'package:lumify_notes/features/notebook/presentation/create_notebook_dialog_box.dart';
 
 import '../../../../configurations/configurations.dart';
 import '../app_home_toolbar.dart';
@@ -84,7 +85,10 @@ class AppHomePage extends StatelessWidget implements AutoRouteWrapper {
               backgroundColor: onPrimary,
             ),
             FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const CreateNotebookDialogBox()));
+              },
               child: Icon(Icons.folder_open_rounded),
               foregroundColor: primary,
               backgroundColor: onPrimary,
