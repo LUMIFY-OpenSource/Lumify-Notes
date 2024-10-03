@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
-import 'package:lumify_notes/features/app/app.dart';
-import 'package:lumify_notes/features/notebook/presentation/create_notebook_dialog_box.dart';
-
 import '../../../../configurations/configurations.dart';
 import '../app_home_toolbar.dart';
 
@@ -69,6 +66,7 @@ class AppHomePage extends StatelessWidget implements AutoRouteWrapper {
             foregroundColor: primary,
             backgroundColor: onPrimary,
             shape: const CircleBorder(),
+            heroTag: 'open',
           ),
           closeButtonBuilder: DefaultFloatingActionButtonBuilder(
             child: const Icon(Icons.close),
@@ -76,22 +74,26 @@ class AppHomePage extends StatelessWidget implements AutoRouteWrapper {
             foregroundColor: primary,
             backgroundColor: onPrimary,
             shape: const CircleBorder(),
+            heroTag: 'close',
           ),
           children: [
             FloatingActionButton(
               onPressed: () {},
-              child: Icon(Icons.note_add),
               foregroundColor: primary,
               backgroundColor: onPrimary,
+              heroTag: 'note',
+              child: const Icon(Icons.note_add),
             ),
             FloatingActionButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const CreateNotebookDialogBox()));
+                context.router.push(
+                  const CreateNotebookDialogRoute()
+                );
               },
-              child: Icon(Icons.folder_open_rounded),
               foregroundColor: primary,
               backgroundColor: onPrimary,
+              heroTag: 'notebook',
+              child: const Icon(Icons.folder_open_rounded),
             ),
           ],
         );

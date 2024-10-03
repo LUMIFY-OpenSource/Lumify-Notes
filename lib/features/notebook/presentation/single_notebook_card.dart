@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:lumify_notes/features/notebook/models/notebook_model.dart';
 
 class SingleNotebookCard extends StatelessWidget {
-  final String title;
-  final Color color;
-  final String? emoji;
+  final NoteBook notebook;
 
   const SingleNotebookCard(
-      {super.key, required this.title, required this.color, this.emoji});
+      {super.key, required this.notebook});
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +18,14 @@ class SingleNotebookCard extends StatelessWidget {
             height: 179,
             width: 156,
             decoration: BoxDecoration(
-              color: color,
+              color: Color(notebook.color),
               borderRadius: BorderRadius.circular(8),
             ),
-            child: emoji != null
+            child: notebook.emoji != null
                 ? Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      emoji!,
+                      notebook.emoji!,
                       textAlign: TextAlign.end,
                       style: theme.textTheme.headlineSmall,
                     ),
@@ -35,7 +34,7 @@ class SingleNotebookCard extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            title,
+            notebook.name,
             style: const TextStyle(
               color: Colors.white,
               fontSize: 16,

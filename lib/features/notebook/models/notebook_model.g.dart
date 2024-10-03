@@ -8,9 +8,9 @@ part of 'notebook_model.dart';
 
 _$NoteBookImpl _$$NoteBookImplFromJson(Map<String, dynamic> json) =>
     _$NoteBookImpl(
-      id: json['id'] as String,
+      noteBookId: json['noteBookId'] as String,
       name: json['name'] as String,
-      color: json['color'] as String,
+      color: (json['color'] as num).toInt(),
       createdAt: json['createdAt'] == null
           ? null
           : DateTime.parse(json['createdAt'] as String),
@@ -22,7 +22,7 @@ _$NoteBookImpl _$$NoteBookImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$NoteBookImplToJson(_$NoteBookImpl instance) {
   final val = <String, dynamic>{
-    'id': instance.id,
+    'noteBookId': instance.noteBookId,
     'name': instance.name,
     'color': instance.color,
   };

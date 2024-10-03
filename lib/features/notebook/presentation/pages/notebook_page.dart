@@ -1,4 +1,3 @@
-import 'package:animations/animations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +11,6 @@ class NotebookPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
     return Container(
       height: MediaQuery.of(context).size.height,
       padding: const EdgeInsets.all(kPadding),

@@ -34,10 +34,17 @@ class AppRouter extends $AppRouter {
       children: appHomeRoutes,
       // guards: [AuthGuard()],
     ),
+    CustomRoute(
+      customRouteBuilder: dialogRouteBuilder,
+      page: CreateNotebookDialogRoute.page,
+      path: '/create-notebook',
+    )
   ];
 }
 
-Route<T> modalSheetBuilder<T>(BuildContext context, Widget child, AutoRoutePage<T> page) => ModalBottomSheetRoute(
+Route<T> modalSheetBuilder<T>(
+        BuildContext context, Widget child, AutoRoutePage<T> page) =>
+    ModalBottomSheetRoute(
       settings: page,
       isScrollControlled: true,
       constraints: BoxConstraints(
@@ -46,11 +53,13 @@ Route<T> modalSheetBuilder<T>(BuildContext context, Widget child, AutoRoutePage<
       builder: (context) => child,
     );
 
-Route<T> dialogRouteBuilder<T>(BuildContext context, Widget child, AutoRoutePage<T> page) => DialogRoute(
+Route<T> dialogRouteBuilder<T>(
+        BuildContext context, Widget child, AutoRoutePage<T> page) =>
+    DialogRoute(
       settings: page,
       barrierDismissible: true,
       builder: (context) => child,
       context: context,
       useSafeArea: true,
-      barrierColor: AppColors.surfaceVariantDark.withOpacity(.1),
+      barrierColor: AppColors.surfaceVariantDark.withOpacity(.8),
     );

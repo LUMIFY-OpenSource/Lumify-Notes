@@ -1,8 +1,6 @@
-import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../configurations/configurations.dart';
-import '../../../notebook/presentation/notebook_grid_view.dart';
 import '../notes_grid_view.dart';
 
 @RoutePage()

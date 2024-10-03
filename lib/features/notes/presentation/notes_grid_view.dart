@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lumify_notes/configurations/configurations.dart';
-import 'package:lumify_notes/features/notebook/presentation/single_notebook_card.dart';
 
 class _NoteData {
   final String title;
@@ -35,10 +34,11 @@ class NotesGridView extends StatelessWidget {
       ),
       itemCount: dummyData.length,
       itemBuilder: (context, index) {
-        return SingleNotebookCard(
-          title: dummyData[index].title,
-          color: dummyData[index].color,
-        );
+        return const Offstage();
+        //   SingleNotebookCard(
+        //   title: dummyData[index].title,
+        //   color: dummyData[index].color,
+        // );
       },
     );
   }

@@ -1,8 +1,14 @@
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lumify_notes/configurations/configurations.dart';
 
+import '../blocs/notebook_cubit.dart';
+
+@RoutePage(
+  name: 'CreateNotebookDialogRoute'
+)
 class CreateNotebookDialogBox extends StatefulWidget {
   const CreateNotebookDialogBox({super.key});
 
@@ -11,8 +17,9 @@ class CreateNotebookDialogBox extends StatefulWidget {
 }
 
 class _CreateNotebookDialogBoxState extends State<CreateNotebookDialogBox> {
+  TextEditingController nameController = TextEditingController();
   String? pickedEmoji;
-  Color? pickedColor;
+  Color pickedColor = notebookPredefinedColors[0];
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +53,8 @@ class _CreateNotebookDialogBoxState extends State<CreateNotebookDialogBox> {
             Padding(
               padding: const EdgeInsets.all(kPadding),
               child: TextField(
+                style: const TextStyle(color: Colors.black),
+                controller: nameController,
                 decoration: InputDecoration(
                   hintText: "Enter notebook name",
                   hintStyle: TextStyle(color: Theme.of(context).colorScheme.outline, fontWeight: FontWeight.w400),
@@ -113,7 +122,10 @@ class _CreateNotebookDialogBoxState extends State<CreateNotebookDialogBox> {
             Padding(
               padding: const EdgeInsets.all(kPadding),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  context.read<NotebookCubit>().createNotebook(nameController.text, pickedColor.value, pickedEmoji);
+                  context.router.maybePop();
+                },
                 child: Align(
                   alignment: Alignment.bottomRight,
                   child: Text(

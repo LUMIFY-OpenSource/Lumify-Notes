@@ -7,9 +7,9 @@ part 'notebook_model.g.dart';
 @freezed
 class NoteBook with _$NoteBook {
   const factory NoteBook({
-    required String id,
+    required String noteBookId,
     required String name,
-    required String color,
+    required int color,
     @JsonKey(includeIfNull: false) DateTime? createdAt,
     @JsonKey(includeIfNull: false) DateTime? updatedAt,
     @JsonKey(includeIfNull: false) String? emoji,

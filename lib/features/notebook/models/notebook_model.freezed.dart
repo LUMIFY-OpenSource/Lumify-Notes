@@ -20,9 +20,9 @@ NoteBook _$NoteBookFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NoteBook {
-  String get id => throw _privateConstructorUsedError;
+  String get noteBookId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get color => throw _privateConstructorUsedError;
+  int get color => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
@@ -42,9 +42,9 @@ abstract class $NoteBookCopyWith<$Res> {
       _$NoteBookCopyWithImpl<$Res, NoteBook>;
   @useResult
   $Res call(
-      {String id,
+      {String noteBookId,
       String name,
-      String color,
+      int color,
       @JsonKey(includeIfNull: false) DateTime? createdAt,
       @JsonKey(includeIfNull: false) DateTime? updatedAt,
       @JsonKey(includeIfNull: false) String? emoji});
@@ -63,7 +63,7 @@ class _$NoteBookCopyWithImpl<$Res, $Val extends NoteBook>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? noteBookId = null,
     Object? name = null,
     Object? color = null,
     Object? createdAt = freezed,
@@ -71,9 +71,9 @@ class _$NoteBookCopyWithImpl<$Res, $Val extends NoteBook>
     Object? emoji = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      noteBookId: null == noteBookId
+          ? _value.noteBookId
+          : noteBookId // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
           ? _value.name
@@ -82,7 +82,7 @@ class _$NoteBookCopyWithImpl<$Res, $Val extends NoteBook>
       color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -108,9 +108,9 @@ abstract class _$$NoteBookImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
+      {String noteBookId,
       String name,
-      String color,
+      int color,
       @JsonKey(includeIfNull: false) DateTime? createdAt,
       @JsonKey(includeIfNull: false) DateTime? updatedAt,
       @JsonKey(includeIfNull: false) String? emoji});
@@ -127,7 +127,7 @@ class __$$NoteBookImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? noteBookId = null,
     Object? name = null,
     Object? color = null,
     Object? createdAt = freezed,
@@ -135,9 +135,9 @@ class __$$NoteBookImplCopyWithImpl<$Res>
     Object? emoji = freezed,
   }) {
     return _then(_$NoteBookImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      noteBookId: null == noteBookId
+          ? _value.noteBookId
+          : noteBookId // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
           ? _value.name
@@ -146,7 +146,7 @@ class __$$NoteBookImplCopyWithImpl<$Res>
       color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -167,7 +167,7 @@ class __$$NoteBookImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$NoteBookImpl implements _NoteBook {
   const _$NoteBookImpl(
-      {required this.id,
+      {required this.noteBookId,
       required this.name,
       required this.color,
       @JsonKey(includeIfNull: false) this.createdAt,
@@ -178,11 +178,11 @@ class _$NoteBookImpl implements _NoteBook {
       _$$NoteBookImplFromJson(json);
 
   @override
-  final String id;
+  final String noteBookId;
   @override
   final String name;
   @override
-  final String color;
+  final int color;
   @override
   @JsonKey(includeIfNull: false)
   final DateTime? createdAt;
@@ -195,7 +195,7 @@ class _$NoteBookImpl implements _NoteBook {
 
   @override
   String toString() {
-    return 'NoteBook(id: $id, name: $name, color: $color, createdAt: $createdAt, updatedAt: $updatedAt, emoji: $emoji)';
+    return 'NoteBook(noteBookId: $noteBookId, name: $name, color: $color, createdAt: $createdAt, updatedAt: $updatedAt, emoji: $emoji)';
   }
 
   @override
@@ -203,7 +203,8 @@ class _$NoteBookImpl implements _NoteBook {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NoteBookImpl &&
-            (identical(other.id, id) || other.id == id) &&
+            (identical(other.noteBookId, noteBookId) ||
+                other.noteBookId == noteBookId) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.color, color) || other.color == color) &&
             (identical(other.createdAt, createdAt) ||
@@ -215,8 +216,8 @@ class _$NoteBookImpl implements _NoteBook {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, color, createdAt, updatedAt, emoji);
+  int get hashCode => Object.hash(
+      runtimeType, noteBookId, name, color, createdAt, updatedAt, emoji);
 
   @JsonKey(ignore: true)
   @override
@@ -234,9 +235,9 @@ class _$NoteBookImpl implements _NoteBook {
 
 abstract class _NoteBook implements NoteBook {
   const factory _NoteBook(
-      {required final String id,
+      {required final String noteBookId,
       required final String name,
-      required final String color,
+      required final int color,
       @JsonKey(includeIfNull: false) final DateTime? createdAt,
       @JsonKey(includeIfNull: false) final DateTime? updatedAt,
       @JsonKey(includeIfNull: false) final String? emoji}) = _$NoteBookImpl;
@@ -245,11 +246,11 @@ abstract class _NoteBook implements NoteBook {
       _$NoteBookImpl.fromJson;
 
   @override
-  String get id;
+  String get noteBookId;
   @override
   String get name;
   @override
-  String get color;
+  int get color;
   @override
   @JsonKey(includeIfNull: false)
   DateTime? get createdAt;

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:lumify_notes/features/authentication/authentication.dart';
+import 'package:lumify_notes/features/notebook/blocs/notebook_cubit.dart';
 
 import 'configurations/configurations.dart';
 import 'features/app/presentation/builders/app_responsive_layout_builder.dart';
@@ -38,6 +39,8 @@ class LumifyNotesAppBuilder extends AppBuilder {
                 context.read<AppLinksRepository>(),
               ),
               lazy: false,
+            ),BlocProvider<NotebookCubit>(
+              create: (context) => NotebookCubit(),
             ),
           ],
           builder: (context) => AppCubitConsumer(
