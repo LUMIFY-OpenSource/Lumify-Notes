@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:lumify_notes/features/notebook/models/notebook_model.dart';
 import 'package:uuid/uuid.dart';
 
@@ -15,7 +16,7 @@ class NotebookState with _$NotebookState {
   factory NotebookState.fromJson(Map<String, dynamic> json) => _$NotebookStateFromJson(json);
 }
 
-class NotebookCubit extends Cubit<NotebookState> {
+class NotebookCubit extends HydratedCubit<NotebookState> {
   NotebookCubit() : super(const NotebookState());
 
   void createNotebook(String notebookName, int color, String? emoji){
@@ -24,6 +25,16 @@ class NotebookCubit extends Cubit<NotebookState> {
     final availableNotebooks = List<NoteBook>.from(state.notebooks);
     availableNotebooks.add(notebook);
     emit(state.copyWith(notebooks: availableNotebooks));
+  }
+
+  @override
+  NotebookState? fromJson(Map<String, dynamic> json) {
+    return NotebookState.fromJson(json);
+  }
+
+  @override
+  Map<String, dynamic>? toJson(NotebookState state) {
+    return state.toJson();
   }
 
 }
