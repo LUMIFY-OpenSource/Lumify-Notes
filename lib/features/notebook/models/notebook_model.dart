@@ -7,7 +7,7 @@ part 'notebook_model.g.dart';
 @freezed
 class NoteBook with _$NoteBook {
   const factory NoteBook({
-    @JsonKey(name: '_id') required String id,
+    required String id,
     required String name,
     required String color,
     @JsonKey(includeIfNull: false) DateTime? createdAt,
