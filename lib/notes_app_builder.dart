@@ -9,6 +9,7 @@ import 'package:lumify_notes/features/notebook/blocs/notebook_cubit.dart';
 
 import 'configurations/configurations.dart';
 import 'features/app/presentation/builders/app_responsive_layout_builder.dart';
+import 'features/notes/blocs/note_cubit.dart';
 
 class LumifyNotesAppBuilder extends AppBuilder {
   LumifyNotesAppBuilder({
@@ -39,12 +40,17 @@ class LumifyNotesAppBuilder extends AppBuilder {
                 context.read<AppLinksRepository>(),
               ),
               lazy: false,
-            ),BlocProvider<NotebookCubit>(
+            ),
+            BlocProvider<NotebookCubit>(
               create: (context) => NotebookCubit(),
+            ),
+            BlocProvider<NoteCubit>(
+              create: (context) => NoteCubit(),
             ),
           ],
           builder: (context) => AppCubitConsumer(
-            listenWhen: (previous, current) => previous.environment != current.environment,
+            listenWhen: (previous, current) =>
+                previous.environment != current.environment,
             listener: (context, state) async {},
             builder: (context, appState) => MaterialApp.router(
               debugShowCheckedModeBanner: false,
@@ -85,7 +91,8 @@ class LumifyNotesAppBuilder extends AppBuilder {
                       ? kIsWeb
                           ? child
                           : AppLinksCubitListener(
-                              listenWhen: (previous, current) => current != null,
+                              listenWhen: (previous, current) =>
+                                  current != null,
                               listener: (context, appLink) {
                                 final path = appLink?.path;
                                 if (path != null) {

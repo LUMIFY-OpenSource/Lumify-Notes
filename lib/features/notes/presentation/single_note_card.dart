@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class SingleNoteCard extends StatelessWidget {
-  final String title;
-  final Color color;
-  final String? emoji;
+import '../models/note_model.dart';
 
-  const SingleNoteCard({super.key, required this.title, required this.color, this.emoji});
+class SingleNoteCard extends StatelessWidget {
+  final Note note;
+
+  const SingleNoteCard({super.key, required this.note});
 
   @override
   Widget build(BuildContext context) {
@@ -18,23 +18,23 @@ class SingleNoteCard extends StatelessWidget {
             height: 179,
             width: 156,
             decoration: BoxDecoration(
-              color: color,
+              color: Color(note.color),
               borderRadius: BorderRadius.circular(8),
             ),
-            child: emoji != null
-                ? Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      emoji!,
-                      textAlign: TextAlign.end,
-                      style: theme.textTheme.headlineSmall,
-                    ),
-                  )
-                : const Offstage(),
+            // child: emoji != null
+            //     ? Padding(
+            //         padding: const EdgeInsets.all(8.0),
+            //         child: Text(
+            //           emoji!,
+            //           textAlign: TextAlign.end,
+            //           style: theme.textTheme.headlineSmall,
+            //         ),
+            //       )
+            //     : const Offstage(),
           ),
           const SizedBox(height: 8),
           Text(
-            title,
+            note.name,
             style: const TextStyle(
               color: Colors.white,
               fontSize: 16,

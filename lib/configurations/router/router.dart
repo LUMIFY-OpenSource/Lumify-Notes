@@ -38,6 +38,11 @@ class AppRouter extends $AppRouter {
       customRouteBuilder: dialogRouteBuilder,
       page: CreateNotebookDialogRoute.page,
       path: '/create-notebook',
+    ),
+    CustomRoute(
+      customRouteBuilder: dialogRouteBuilder,
+      page: CreateNoteDialogRoute.page,
+      path: '/create-note',
     )
   ];
 }

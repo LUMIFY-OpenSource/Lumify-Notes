@@ -1,44 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lumify_notes/configurations/configurations.dart';
-
-class _NoteData {
-  final String title;
-  final Color color;
-
-  const _NoteData({
-    required this.title,
-    required this.color,
-  });
-}
-
-final dummyData = List.generate(
-  8,
-  (index) => _NoteData(
-    title: 'Note $index',
-    color: Colors.primaries[index % Colors.primaries.length],
-  ),
-);
+import 'package:lumify_notes/features/notes/blocs/note_cubit.dart';
+import 'package:lumify_notes/features/notes/presentation/single_note_card.dart';
 
 class NotesGridView extends StatelessWidget {
   const NotesGridView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      shrinkWrap: true,
-      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: 200,
-        childAspectRatio: kPadding * 0.11,
-        crossAxisSpacing: 5,
-        mainAxisSpacing: 10,
-      ),
-      itemCount: dummyData.length,
-      itemBuilder: (context, index) {
-        return const Offstage();
-        //   SingleNotebookCard(
-        //   title: dummyData[index].title,
-        //   color: dummyData[index].color,
-        // );
+    return BlocBuilder<NoteCubit, NoteState>(
+      builder: (context, state) {
+        final notes = state.notes;
+        return GridView.builder(
+          shrinkWrap: true,
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 200,
+            childAspectRatio: kPadding * 0.11,
+            crossAxisSpacing: 5,
+            mainAxisSpacing: 10,
+          ),
+          itemCount: notes.length,
+          itemBuilder: (context, index) {
+            return SingleNoteCard(
+              note: notes[index],
+            );
+          },
+        );
       },
     );
   }

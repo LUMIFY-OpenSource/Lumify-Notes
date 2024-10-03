@@ -8,90 +8,101 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i8;
-import 'package:flutter/material.dart' as _i9;
+import 'package:auto_route/auto_route.dart' as _i9;
+import 'package:flutter/material.dart' as _i10;
 import 'package:lumify_notes/features/app/presentation/pages/app_home_page.dart'
     deferred as _i1;
 import 'package:lumify_notes/features/app/presentation/pages/unknown_page.dart'
-    deferred as _i7;
+    deferred as _i8;
 import 'package:lumify_notes/features/authentication/presentation/pages/login_options_router_page.dart'
-    deferred as _i3;
-import 'package:lumify_notes/features/authentication/presentation/pages/login_router_page.dart'
     deferred as _i4;
-import 'package:lumify_notes/features/notebook/presentation/create_notebook_dialog_box.dart'
-    deferred as _i2;
-import 'package:lumify_notes/features/notebook/presentation/pages/notebook_page.dart'
-    deferred as _i6;
-import 'package:lumify_notes/features/notes/presentation/pages/note_page.dart'
+import 'package:lumify_notes/features/authentication/presentation/pages/login_router_page.dart'
     deferred as _i5;
+import 'package:lumify_notes/features/notebook/presentation/create_notebook_dialog_box.dart'
+    deferred as _i3;
+import 'package:lumify_notes/features/notebook/presentation/pages/notebook_page.dart'
+    deferred as _i7;
+import 'package:lumify_notes/features/notes/presentation/create_note_dialog_box.dart'
+    deferred as _i2;
+import 'package:lumify_notes/features/notes/presentation/pages/note_page.dart'
+    deferred as _i6;
 
-abstract class $AppRouter extends _i8.RootStackRouter {
+abstract class $AppRouter extends _i9.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i8.PageFactory> pagesMap = {
+  final Map<String, _i9.PageFactory> pagesMap = {
     AppHomeRoute.name: (routeData) {
       final args = routeData.argsAs<AppHomeRouteArgs>(
           orElse: () => const AppHomeRouteArgs());
-      return _i8.AutoRoutePage<dynamic>(
+      return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i8.DeferredWidget(
+        child: _i9.DeferredWidget(
           _i1.loadLibrary,
-          () => _i8.WrappedRoute(child: _i1.AppHomePage(key: args.key)),
+          () => _i9.WrappedRoute(child: _i1.AppHomePage(key: args.key)),
+        ),
+      );
+    },
+    CreateNoteDialogRoute.name: (routeData) {
+      return _i9.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i9.DeferredWidget(
+          _i2.loadLibrary,
+          () => _i2.CreateNoteDialogBox(),
         ),
       );
     },
     CreateNotebookDialogRoute.name: (routeData) {
-      return _i8.AutoRoutePage<dynamic>(
+      return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i8.DeferredWidget(
-          _i2.loadLibrary,
-          () => _i2.CreateNotebookDialogBox(),
+        child: _i9.DeferredWidget(
+          _i3.loadLibrary,
+          () => _i3.CreateNotebookDialogBox(),
         ),
       );
     },
     LoginOptionsRouter.name: (routeData) {
-      return _i8.AutoRoutePage<dynamic>(
+      return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i8.DeferredWidget(
-          _i3.loadLibrary,
-          () => _i3.LoginOptionsRouterPage(),
+        child: _i9.DeferredWidget(
+          _i4.loadLibrary,
+          () => _i4.LoginOptionsRouterPage(),
         ),
       );
     },
     LoginRouter.name: (routeData) {
-      return _i8.AutoRoutePage<dynamic>(
+      return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i8.DeferredWidget(
-          _i4.loadLibrary,
-          () => _i4.LoginRouterPage(),
+        child: _i9.DeferredWidget(
+          _i5.loadLibrary,
+          () => _i5.LoginRouterPage(),
         ),
       );
     },
     NoteRoute.name: (routeData) {
-      return _i8.AutoRoutePage<dynamic>(
+      return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i8.DeferredWidget(
-          _i5.loadLibrary,
-          () => _i5.NotePage(),
+        child: _i9.DeferredWidget(
+          _i6.loadLibrary,
+          () => _i6.NotePage(),
         ),
       );
     },
     NotebookRoute.name: (routeData) {
-      return _i8.AutoRoutePage<dynamic>(
+      return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i8.DeferredWidget(
-          _i6.loadLibrary,
-          () => _i6.NotebookPage(),
+        child: _i9.DeferredWidget(
+          _i7.loadLibrary,
+          () => _i7.NotebookPage(),
         ),
       );
     },
     UnknownRoute.name: (routeData) {
-      return _i8.AutoRoutePage<dynamic>(
+      return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i8.DeferredWidget(
-          _i7.loadLibrary,
-          () => _i7.UnknownPage(),
+        child: _i9.DeferredWidget(
+          _i8.loadLibrary,
+          () => _i8.UnknownPage(),
         ),
       );
     },
@@ -100,10 +111,10 @@ abstract class $AppRouter extends _i8.RootStackRouter {
 
 /// generated route for
 /// [_i1.AppHomePage]
-class AppHomeRoute extends _i8.PageRouteInfo<AppHomeRouteArgs> {
+class AppHomeRoute extends _i9.PageRouteInfo<AppHomeRouteArgs> {
   AppHomeRoute({
-    _i9.Key? key,
-    List<_i8.PageRouteInfo>? children,
+    _i10.Key? key,
+    List<_i9.PageRouteInfo>? children,
   }) : super(
           AppHomeRoute.name,
           args: AppHomeRouteArgs(key: key),
@@ -112,14 +123,14 @@ class AppHomeRoute extends _i8.PageRouteInfo<AppHomeRouteArgs> {
 
   static const String name = 'AppHomeRoute';
 
-  static const _i8.PageInfo<AppHomeRouteArgs> page =
-      _i8.PageInfo<AppHomeRouteArgs>(name);
+  static const _i9.PageInfo<AppHomeRouteArgs> page =
+      _i9.PageInfo<AppHomeRouteArgs>(name);
 }
 
 class AppHomeRouteArgs {
   const AppHomeRouteArgs({this.key});
 
-  final _i9.Key? key;
+  final _i10.Key? key;
 
   @override
   String toString() {
@@ -128,9 +139,23 @@ class AppHomeRouteArgs {
 }
 
 /// generated route for
-/// [_i2.CreateNotebookDialogBox]
-class CreateNotebookDialogRoute extends _i8.PageRouteInfo<void> {
-  const CreateNotebookDialogRoute({List<_i8.PageRouteInfo>? children})
+/// [_i2.CreateNoteDialogBox]
+class CreateNoteDialogRoute extends _i9.PageRouteInfo<void> {
+  const CreateNoteDialogRoute({List<_i9.PageRouteInfo>? children})
+      : super(
+          CreateNoteDialogRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CreateNoteDialogRoute';
+
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i3.CreateNotebookDialogBox]
+class CreateNotebookDialogRoute extends _i9.PageRouteInfo<void> {
+  const CreateNotebookDialogRoute({List<_i9.PageRouteInfo>? children})
       : super(
           CreateNotebookDialogRoute.name,
           initialChildren: children,
@@ -138,13 +163,13 @@ class CreateNotebookDialogRoute extends _i8.PageRouteInfo<void> {
 
   static const String name = 'CreateNotebookDialogRoute';
 
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i3.LoginOptionsRouterPage]
-class LoginOptionsRouter extends _i8.PageRouteInfo<void> {
-  const LoginOptionsRouter({List<_i8.PageRouteInfo>? children})
+/// [_i4.LoginOptionsRouterPage]
+class LoginOptionsRouter extends _i9.PageRouteInfo<void> {
+  const LoginOptionsRouter({List<_i9.PageRouteInfo>? children})
       : super(
           LoginOptionsRouter.name,
           initialChildren: children,
@@ -152,13 +177,13 @@ class LoginOptionsRouter extends _i8.PageRouteInfo<void> {
 
   static const String name = 'LoginOptionsRouter';
 
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i4.LoginRouterPage]
-class LoginRouter extends _i8.PageRouteInfo<void> {
-  const LoginRouter({List<_i8.PageRouteInfo>? children})
+/// [_i5.LoginRouterPage]
+class LoginRouter extends _i9.PageRouteInfo<void> {
+  const LoginRouter({List<_i9.PageRouteInfo>? children})
       : super(
           LoginRouter.name,
           initialChildren: children,
@@ -166,13 +191,13 @@ class LoginRouter extends _i8.PageRouteInfo<void> {
 
   static const String name = 'LoginRouter';
 
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i5.NotePage]
-class NoteRoute extends _i8.PageRouteInfo<void> {
-  const NoteRoute({List<_i8.PageRouteInfo>? children})
+/// [_i6.NotePage]
+class NoteRoute extends _i9.PageRouteInfo<void> {
+  const NoteRoute({List<_i9.PageRouteInfo>? children})
       : super(
           NoteRoute.name,
           initialChildren: children,
@@ -180,13 +205,13 @@ class NoteRoute extends _i8.PageRouteInfo<void> {
 
   static const String name = 'NoteRoute';
 
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i6.NotebookPage]
-class NotebookRoute extends _i8.PageRouteInfo<void> {
-  const NotebookRoute({List<_i8.PageRouteInfo>? children})
+/// [_i7.NotebookPage]
+class NotebookRoute extends _i9.PageRouteInfo<void> {
+  const NotebookRoute({List<_i9.PageRouteInfo>? children})
       : super(
           NotebookRoute.name,
           initialChildren: children,
@@ -194,13 +219,13 @@ class NotebookRoute extends _i8.PageRouteInfo<void> {
 
   static const String name = 'NotebookRoute';
 
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i7.UnknownPage]
-class UnknownRoute extends _i8.PageRouteInfo<void> {
-  const UnknownRoute({List<_i8.PageRouteInfo>? children})
+/// [_i8.UnknownPage]
+class UnknownRoute extends _i9.PageRouteInfo<void> {
+  const UnknownRoute({List<_i9.PageRouteInfo>? children})
       : super(
           UnknownRoute.name,
           initialChildren: children,
@@ -208,5 +233,5 @@ class UnknownRoute extends _i8.PageRouteInfo<void> {
 
   static const String name = 'UnknownRoute';
 
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
 }
