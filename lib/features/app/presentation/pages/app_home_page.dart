@@ -78,7 +78,11 @@ class AppHomePage extends StatelessWidget implements AutoRouteWrapper {
           ),
           children: [
             FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                context.router.push(
+                    const CreateNoteDialogRoute()
+                );
+              },
               foregroundColor: primary,
               backgroundColor: onPrimary,
               heroTag: 'note',
