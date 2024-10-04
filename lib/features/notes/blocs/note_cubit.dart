@@ -14,6 +14,7 @@ part 'note_cubit.g.dart';
 class NoteState with _$NoteState {
   const factory NoteState({
     @Default([]) List<Note> notes,
+    @Default(false) final bool selectModeEnabled,
   }) = _NoteState;
 
   factory NoteState.fromJson(Map<String, dynamic> json) =>
@@ -33,6 +34,17 @@ class NoteCubit extends HydratedCubit<NoteState> {
     final availableNotes = List<Note>.from(state.notes);
     availableNotes.add(note);
     emit(state.copyWith(notes: availableNotes));
+  }
+  void assignNotebookIdToNote(String noteBookId, String noteId){
+    final availableNotes = List<Note>.from(state.notes);
+    final note = availableNotes.firstWhere((n) => n.noteId == noteId);
+    final updatedNote = note.copyWith(noteBookId: noteBookId);
+    availableNotes.removeWhere((n) => n.noteId == noteId);
+    availableNotes.insert(0, updatedNote);
+    emit(state.copyWith(notes: availableNotes));
+  }
+  void toggleSelectModeEnabled(){
+    emit(state.copyWith(selectModeEnabled: !state.selectModeEnabled));
   }
 
   @override

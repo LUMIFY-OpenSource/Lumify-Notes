@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lumify_notes/features/notes/blocs/note_cubit.dart';
 
 import '../../../../configurations/configurations.dart';
 import '../notes_grid_view.dart';
@@ -10,7 +12,6 @@ class NotePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
     return Container(
       height: MediaQuery.of(context).size.height,
       padding: const EdgeInsets.all(kPadding),
@@ -39,13 +40,35 @@ class NotePage extends StatelessWidget {
                 const SizedBox(
                   width: kPadding * 2,
                 ),
-                GestureDetector(
-                  onTap: () {},
-                  child: const Icon(
-                    Icons.check_circle_outline_rounded,
-                    size: kPadding * 3.5,
-                  ),
-                ),
+                BlocBuilder<NoteCubit, NoteState>(builder: (context, state) {
+                  return Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          context.read<NoteCubit>().toggleSelectModeEnabled();
+                        },
+                        child: Icon(
+                          !state.selectModeEnabled
+                              ? Icons.check_circle_outline_rounded
+                              : Icons.cancel_outlined,
+                          size: kPadding * 3.5,
+                        ),
+                      ),
+                      if (state.selectModeEnabled) ...[
+                        const SizedBox(
+                          width: kPadding * 2,
+                        ),
+                        GestureDetector(
+                          onTap: () {},
+                          child: const Icon(
+                            Icons.select_all_rounded,
+                            size: kPadding * 3.5,
+                          ),
+                        ),
+                      ]
+                    ],
+                  );
+                })
               ],
             ),
           ),
