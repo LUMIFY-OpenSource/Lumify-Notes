@@ -1,7 +1,5 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:lumify_notes/features/notebook/models/notebook_model.dart';
 import 'package:uuid/uuid.dart';
 
 import '../models/note_model.dart';
@@ -15,6 +13,7 @@ class NoteState with _$NoteState {
   const factory NoteState({
     @Default([]) List<Note> notes,
     @Default(false) final bool selectModeEnabled,
+    @Default([]) final List<String> selectedNoteIds,
   }) = _NoteState;
 
   factory NoteState.fromJson(Map<String, dynamic> json) =>
@@ -44,7 +43,19 @@ class NoteCubit extends HydratedCubit<NoteState> {
     emit(state.copyWith(notes: availableNotes));
   }
   void toggleSelectModeEnabled(){
-    emit(state.copyWith(selectModeEnabled: !state.selectModeEnabled));
+    final selectedNoteIds = List<String>.from(state.selectedNoteIds);
+    selectedNoteIds.clear();
+    emit(state.copyWith(selectModeEnabled: !state.selectModeEnabled, selectedNoteIds: selectedNoteIds));
+  }
+  void toggleNoteSelection(String noteId, bool isSelected) {
+    if(isSelected) {
+      emit(state.copyWith(selectedNoteIds: [...state.selectedNoteIds, noteId]));
+    }
+    else{
+      final selectedNoteIds = List<String>.from(state.selectedNoteIds);
+      selectedNoteIds.remove(noteId);
+      emit(state.copyWith(selectedNoteIds: selectedNoteIds));
+    }
   }
 
   @override

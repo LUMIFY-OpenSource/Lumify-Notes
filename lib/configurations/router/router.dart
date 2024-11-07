@@ -43,7 +43,12 @@ class AppRouter extends $AppRouter {
       customRouteBuilder: dialogRouteBuilder,
       page: CreateNoteDialogRoute.page,
       path: '/create-note',
-    )
+    ),
+    AutoRoute(
+    path: '/select-notebook',
+    page: SelectNotebookRoute.page,
+    // guards: [AuthGuard()],
+  ),
   ];
 }
 

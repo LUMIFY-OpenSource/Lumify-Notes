@@ -4,6 +4,7 @@ part 'note_model.freezed.dart';
 
 part 'note_model.g.dart';
 
+//ignore_for_file: invalid_annotation_target
 @freezed
 class Note with _$Note {
   const factory Note({

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 import '../../../../configurations/configurations.dart';
+import '../../../notes/blocs/note_cubit.dart';
 import '../app_home_toolbar.dart';
 
 @RoutePage()
@@ -16,6 +18,8 @@ class AppHomePage extends StatelessWidget implements AutoRouteWrapper {
     final theme = Theme.of(context);
     final primary = theme.colorScheme.primary;
     final onPrimary = theme.colorScheme.onPrimary;
+    final noteCubit = context.watch<NoteCubit>(); // Watch the cubit for changes
+    final isSelectModeEnabled = noteCubit.state.selectModeEnabled;
 
     return AutoTabsScaffold(
       routes: const [
@@ -59,6 +63,50 @@ class AppHomePage extends StatelessWidget implements AutoRouteWrapper {
         );
       },
       floatingActionButtonBuilder: (context, tabsRouter) {
+        if(isSelectModeEnabled && tabsRouter.activeIndex == 1) {
+          return ExpandableFab(
+            openButtonBuilder: RotateFloatingActionButtonBuilder(
+              child: const Icon(Icons.menu),
+              fabSize: ExpandableFabSize.regular,
+              foregroundColor: primary,
+              backgroundColor: onPrimary,
+              shape: const CircleBorder(),
+              heroTag: 'menu',
+            ),
+            closeButtonBuilder: DefaultFloatingActionButtonBuilder(
+              child: const Icon(Icons.close),
+              fabSize: ExpandableFabSize.small,
+              foregroundColor: primary,
+              backgroundColor: onPrimary,
+              shape: const CircleBorder(),
+              heroTag: 'close',
+            ),
+            children: [
+              FloatingActionButton(
+                onPressed: () {
+                  context.router.push(
+                      const CreateNoteDialogRoute()
+                  );
+                },
+                foregroundColor: primary,
+                backgroundColor: onPrimary,
+                heroTag: 'delete',
+                child: const Icon(Icons.delete),
+              ),
+              FloatingActionButton(
+                onPressed: () {
+                  context.router.push(
+                      const SelectNotebookRoute()
+                  );
+                },
+                foregroundColor: primary,
+                backgroundColor: onPrimary,
+                heroTag: 'move to notebook',
+                child: const Icon(Icons.arrow_circle_right_outlined),
+              ),
+            ],
+          );
+        }
         return ExpandableFab(
           openButtonBuilder: RotateFloatingActionButtonBuilder(
             child: const Icon(Icons.add),

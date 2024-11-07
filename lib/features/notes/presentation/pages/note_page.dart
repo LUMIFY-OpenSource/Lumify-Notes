@@ -11,7 +11,6 @@ class NotePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Container(
       height: MediaQuery.of(context).size.height,
       padding: const EdgeInsets.all(kPadding),

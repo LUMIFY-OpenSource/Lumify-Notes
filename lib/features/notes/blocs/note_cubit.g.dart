@@ -13,10 +13,15 @@ _$NoteStateImpl _$$NoteStateImplFromJson(Map<String, dynamic> json) =>
               .toList() ??
           const [],
       selectModeEnabled: json['selectModeEnabled'] as bool? ?? false,
+      selectedNoteIds: (json['selectedNoteIds'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$NoteStateImplToJson(_$NoteStateImpl instance) =>
     <String, dynamic>{
       'notes': instance.notes,
       'selectModeEnabled': instance.selectModeEnabled,
+      'selectedNoteIds': instance.selectedNoteIds,
     };

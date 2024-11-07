@@ -22,6 +22,7 @@ NoteState _$NoteStateFromJson(Map<String, dynamic> json) {
 mixin _$NoteState {
   List<Note> get notes => throw _privateConstructorUsedError;
   bool get selectModeEnabled => throw _privateConstructorUsedError;
+  List<String> get selectedNoteIds => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,8 @@ abstract class $NoteStateCopyWith<$Res> {
   factory $NoteStateCopyWith(NoteState value, $Res Function(NoteState) then) =
       _$NoteStateCopyWithImpl<$Res, NoteState>;
   @useResult
-  $Res call({List<Note> notes, bool selectModeEnabled});
+  $Res call(
+      {List<Note> notes, bool selectModeEnabled, List<String> selectedNoteIds});
 }
 
 /// @nodoc
@@ -52,6 +54,7 @@ class _$NoteStateCopyWithImpl<$Res, $Val extends NoteState>
   $Res call({
     Object? notes = null,
     Object? selectModeEnabled = null,
+    Object? selectedNoteIds = null,
   }) {
     return _then(_value.copyWith(
       notes: null == notes
@@ -62,6 +65,10 @@ class _$NoteStateCopyWithImpl<$Res, $Val extends NoteState>
           ? _value.selectModeEnabled
           : selectModeEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      selectedNoteIds: null == selectedNoteIds
+          ? _value.selectedNoteIds
+          : selectedNoteIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 }
@@ -74,7 +81,8 @@ abstract class _$$NoteStateImplCopyWith<$Res>
       __$$NoteStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Note> notes, bool selectModeEnabled});
+  $Res call(
+      {List<Note> notes, bool selectModeEnabled, List<String> selectedNoteIds});
 }
 
 /// @nodoc
@@ -90,6 +98,7 @@ class __$$NoteStateImplCopyWithImpl<$Res>
   $Res call({
     Object? notes = null,
     Object? selectModeEnabled = null,
+    Object? selectedNoteIds = null,
   }) {
     return _then(_$NoteStateImpl(
       notes: null == notes
@@ -100,6 +109,10 @@ class __$$NoteStateImplCopyWithImpl<$Res>
           ? _value.selectModeEnabled
           : selectModeEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      selectedNoteIds: null == selectedNoteIds
+          ? _value._selectedNoteIds
+          : selectedNoteIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -108,8 +121,11 @@ class __$$NoteStateImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$NoteStateImpl implements _NoteState {
   const _$NoteStateImpl(
-      {final List<Note> notes = const [], this.selectModeEnabled = false})
-      : _notes = notes;
+      {final List<Note> notes = const [],
+      this.selectModeEnabled = false,
+      final List<String> selectedNoteIds = const []})
+      : _notes = notes,
+        _selectedNoteIds = selectedNoteIds;
 
   factory _$NoteStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$NoteStateImplFromJson(json);
@@ -126,10 +142,18 @@ class _$NoteStateImpl implements _NoteState {
   @override
   @JsonKey()
   final bool selectModeEnabled;
+  final List<String> _selectedNoteIds;
+  @override
+  @JsonKey()
+  List<String> get selectedNoteIds {
+    if (_selectedNoteIds is EqualUnmodifiableListView) return _selectedNoteIds;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedNoteIds);
+  }
 
   @override
   String toString() {
-    return 'NoteState(notes: $notes, selectModeEnabled: $selectModeEnabled)';
+    return 'NoteState(notes: $notes, selectModeEnabled: $selectModeEnabled, selectedNoteIds: $selectedNoteIds)';
   }
 
   @override
@@ -139,13 +163,18 @@ class _$NoteStateImpl implements _NoteState {
             other is _$NoteStateImpl &&
             const DeepCollectionEquality().equals(other._notes, _notes) &&
             (identical(other.selectModeEnabled, selectModeEnabled) ||
-                other.selectModeEnabled == selectModeEnabled));
+                other.selectModeEnabled == selectModeEnabled) &&
+            const DeepCollectionEquality()
+                .equals(other._selectedNoteIds, _selectedNoteIds));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_notes), selectModeEnabled);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_notes),
+      selectModeEnabled,
+      const DeepCollectionEquality().hash(_selectedNoteIds));
 
   @JsonKey(ignore: true)
   @override
@@ -163,7 +192,9 @@ class _$NoteStateImpl implements _NoteState {
 
 abstract class _NoteState implements NoteState {
   const factory _NoteState(
-      {final List<Note> notes, final bool selectModeEnabled}) = _$NoteStateImpl;
+      {final List<Note> notes,
+      final bool selectModeEnabled,
+      final List<String> selectedNoteIds}) = _$NoteStateImpl;
 
   factory _NoteState.fromJson(Map<String, dynamic> json) =
       _$NoteStateImpl.fromJson;
@@ -172,6 +203,8 @@ abstract class _NoteState implements NoteState {
   List<Note> get notes;
   @override
   bool get selectModeEnabled;
+  @override
+  List<String> get selectedNoteIds;
   @override
   @JsonKey(ignore: true)
   _$$NoteStateImplCopyWith<_$NoteStateImpl> get copyWith =>

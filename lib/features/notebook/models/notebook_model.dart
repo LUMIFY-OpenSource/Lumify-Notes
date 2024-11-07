@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'notebook_model.freezed.dart';
 
 part 'notebook_model.g.dart';
+//ignore_for_file: invalid_annotation_target
 
 @freezed
 class NoteBook with _$NoteBook {
