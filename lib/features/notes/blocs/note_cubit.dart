@@ -34,19 +34,22 @@ class NoteCubit extends HydratedCubit<NoteState> {
     availableNotes.add(note);
     emit(state.copyWith(notes: availableNotes));
   }
-  void assignNotebookIdToNote(String noteBookId, String noteId){
-    final availableNotes = List<Note>.from(state.notes);
-    final note = availableNotes.firstWhere((n) => n.noteId == noteId);
-    final updatedNote = note.copyWith(noteBookId: noteBookId);
-    availableNotes.removeWhere((n) => n.noteId == noteId);
-    availableNotes.insert(0, updatedNote);
-    emit(state.copyWith(notes: availableNotes));
-  }
+  //TODO: Implement the assignNotebookIdToNote method
+  // void assignNotebookIdToNote(String noteBookId, String noteId){
+  //   final availableNotes = List<Note>.from(state.notes);
+  //   final note = availableNotes.firstWhere((n) => n.noteId == noteId);
+  //   final updatedNote = note.copyWith(noteBookId: noteBookId);
+  //   availableNotes.removeWhere((n) => n.noteId == noteId);
+  //   availableNotes.insert(0, updatedNote);
+  //   emit(state.copyWith(notes: availableNotes));
+  // }
+
   void toggleSelectModeEnabled(){
     final selectedNoteIds = List<String>.from(state.selectedNoteIds);
     selectedNoteIds.clear();
     emit(state.copyWith(selectModeEnabled: !state.selectModeEnabled, selectedNoteIds: selectedNoteIds));
   }
+
   void toggleNoteSelection(String noteId, bool isSelected) {
     if(isSelected) {
       emit(state.copyWith(selectedNoteIds: [...state.selectedNoteIds, noteId]));
@@ -56,6 +59,13 @@ class NoteCubit extends HydratedCubit<NoteState> {
       selectedNoteIds.remove(noteId);
       emit(state.copyWith(selectedNoteIds: selectedNoteIds));
     }
+  }
+
+  void deleteSelectedNotes(){
+    final availableNotes = List<Note>.from(state.notes);
+    final selectedNoteIds = state.selectedNoteIds;
+    availableNotes.removeWhere((note) => selectedNoteIds.contains(note.noteId));
+    emit(state.copyWith(notes: availableNotes, selectedNoteIds: []));
   }
 
   @override

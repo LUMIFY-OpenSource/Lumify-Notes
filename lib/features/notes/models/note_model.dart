@@ -9,7 +9,6 @@ part 'note_model.g.dart';
 class Note with _$Note {
   const factory Note({
     required String noteId,
-    String? noteBookId,
     required String name,
     required int color,
     @JsonKey(includeIfNull: false) DateTime? createdAt,

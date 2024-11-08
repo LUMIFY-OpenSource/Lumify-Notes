@@ -9,6 +9,7 @@ part 'notebook_model.g.dart';
 class NoteBook with _$NoteBook {
   const factory NoteBook({
     required String noteBookId,
+    @Default([]) List<String> noteIds,
     required String name,
     required int color,
     @JsonKey(includeIfNull: false) DateTime? createdAt,

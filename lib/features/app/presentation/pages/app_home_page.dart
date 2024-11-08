@@ -84,9 +84,7 @@ class AppHomePage extends StatelessWidget implements AutoRouteWrapper {
             children: [
               FloatingActionButton(
                 onPressed: () {
-                  context.router.push(
-                      const CreateNoteDialogRoute()
-                  );
+                  noteCubit.deleteSelectedNotes();
                 },
                 foregroundColor: primary,
                 backgroundColor: onPrimary,

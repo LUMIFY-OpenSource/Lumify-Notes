@@ -21,7 +21,6 @@ Note _$NoteFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Note {
   String get noteId => throw _privateConstructorUsedError;
-  String? get noteBookId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   int get color => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
@@ -41,7 +40,6 @@ abstract class $NoteCopyWith<$Res> {
   @useResult
   $Res call(
       {String noteId,
-      String? noteBookId,
       String name,
       int color,
       @JsonKey(includeIfNull: false) DateTime? createdAt,
@@ -62,7 +60,6 @@ class _$NoteCopyWithImpl<$Res, $Val extends Note>
   @override
   $Res call({
     Object? noteId = null,
-    Object? noteBookId = freezed,
     Object? name = null,
     Object? color = null,
     Object? createdAt = freezed,
@@ -73,10 +70,6 @@ class _$NoteCopyWithImpl<$Res, $Val extends Note>
           ? _value.noteId
           : noteId // ignore: cast_nullable_to_non_nullable
               as String,
-      noteBookId: freezed == noteBookId
-          ? _value.noteBookId
-          : noteBookId // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -106,7 +99,6 @@ abstract class _$$NoteImplCopyWith<$Res> implements $NoteCopyWith<$Res> {
   @useResult
   $Res call(
       {String noteId,
-      String? noteBookId,
       String name,
       int color,
       @JsonKey(includeIfNull: false) DateTime? createdAt,
@@ -124,7 +116,6 @@ class __$$NoteImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? noteId = null,
-    Object? noteBookId = freezed,
     Object? name = null,
     Object? color = null,
     Object? createdAt = freezed,
@@ -135,10 +126,6 @@ class __$$NoteImplCopyWithImpl<$Res>
           ? _value.noteId
           : noteId // ignore: cast_nullable_to_non_nullable
               as String,
-      noteBookId: freezed == noteBookId
-          ? _value.noteBookId
-          : noteBookId // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -164,7 +151,6 @@ class __$$NoteImplCopyWithImpl<$Res>
 class _$NoteImpl implements _Note {
   const _$NoteImpl(
       {required this.noteId,
-      this.noteBookId,
       required this.name,
       required this.color,
       @JsonKey(includeIfNull: false) this.createdAt,
@@ -175,8 +161,6 @@ class _$NoteImpl implements _Note {
 
   @override
   final String noteId;
-  @override
-  final String? noteBookId;
   @override
   final String name;
   @override
@@ -190,7 +174,7 @@ class _$NoteImpl implements _Note {
 
   @override
   String toString() {
-    return 'Note(noteId: $noteId, noteBookId: $noteBookId, name: $name, color: $color, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Note(noteId: $noteId, name: $name, color: $color, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -199,8 +183,6 @@ class _$NoteImpl implements _Note {
         (other.runtimeType == runtimeType &&
             other is _$NoteImpl &&
             (identical(other.noteId, noteId) || other.noteId == noteId) &&
-            (identical(other.noteBookId, noteBookId) ||
-                other.noteBookId == noteBookId) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.color, color) || other.color == color) &&
             (identical(other.createdAt, createdAt) ||
@@ -211,8 +193,8 @@ class _$NoteImpl implements _Note {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, noteId, noteBookId, name, color, createdAt, updatedAt);
+  int get hashCode =>
+      Object.hash(runtimeType, noteId, name, color, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -231,7 +213,6 @@ class _$NoteImpl implements _Note {
 abstract class _Note implements Note {
   const factory _Note(
       {required final String noteId,
-      final String? noteBookId,
       required final String name,
       required final int color,
       @JsonKey(includeIfNull: false) final DateTime? createdAt,
@@ -241,8 +222,6 @@ abstract class _Note implements Note {
 
   @override
   String get noteId;
-  @override
-  String? get noteBookId;
   @override
   String get name;
   @override

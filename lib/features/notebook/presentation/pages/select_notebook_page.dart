@@ -36,19 +36,11 @@ class SelectNotebookPage extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                    const Spacer(),
-                    GestureDetector(
-                      onTap: () {},
-                      child: const Icon(
-                        Icons.sort_rounded,
-                        size: 30,
-                      ),
-                    ),
                   ],
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: kPadding * 2,
               ),
               const Expanded(
                 child: NotebookGridView(),

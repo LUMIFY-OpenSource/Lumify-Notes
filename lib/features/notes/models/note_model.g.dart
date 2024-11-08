@@ -8,7 +8,6 @@ part of 'note_model.dart';
 
 _$NoteImpl _$$NoteImplFromJson(Map<String, dynamic> json) => _$NoteImpl(
       noteId: json['noteId'] as String,
-      noteBookId: json['noteBookId'] as String?,
       name: json['name'] as String,
       color: (json['color'] as num).toInt(),
       createdAt: json['createdAt'] == null
@@ -22,7 +21,6 @@ _$NoteImpl _$$NoteImplFromJson(Map<String, dynamic> json) => _$NoteImpl(
 Map<String, dynamic> _$$NoteImplToJson(_$NoteImpl instance) {
   final val = <String, dynamic>{
     'noteId': instance.noteId,
-    'noteBookId': instance.noteBookId,
     'name': instance.name,
     'color': instance.color,
   };

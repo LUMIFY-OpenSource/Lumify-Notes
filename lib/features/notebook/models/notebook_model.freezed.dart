@@ -21,6 +21,7 @@ NoteBook _$NoteBookFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$NoteBook {
   String get noteBookId => throw _privateConstructorUsedError;
+  List<String> get noteIds => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   int get color => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
@@ -43,6 +44,7 @@ abstract class $NoteBookCopyWith<$Res> {
   @useResult
   $Res call(
       {String noteBookId,
+      List<String> noteIds,
       String name,
       int color,
       @JsonKey(includeIfNull: false) DateTime? createdAt,
@@ -64,6 +66,7 @@ class _$NoteBookCopyWithImpl<$Res, $Val extends NoteBook>
   @override
   $Res call({
     Object? noteBookId = null,
+    Object? noteIds = null,
     Object? name = null,
     Object? color = null,
     Object? createdAt = freezed,
@@ -75,6 +78,10 @@ class _$NoteBookCopyWithImpl<$Res, $Val extends NoteBook>
           ? _value.noteBookId
           : noteBookId // ignore: cast_nullable_to_non_nullable
               as String,
+      noteIds: null == noteIds
+          ? _value.noteIds
+          : noteIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -109,6 +116,7 @@ abstract class _$$NoteBookImplCopyWith<$Res>
   @useResult
   $Res call(
       {String noteBookId,
+      List<String> noteIds,
       String name,
       int color,
       @JsonKey(includeIfNull: false) DateTime? createdAt,
@@ -128,6 +136,7 @@ class __$$NoteBookImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? noteBookId = null,
+    Object? noteIds = null,
     Object? name = null,
     Object? color = null,
     Object? createdAt = freezed,
@@ -139,6 +148,10 @@ class __$$NoteBookImplCopyWithImpl<$Res>
           ? _value.noteBookId
           : noteBookId // ignore: cast_nullable_to_non_nullable
               as String,
+      noteIds: null == noteIds
+          ? _value._noteIds
+          : noteIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -168,17 +181,28 @@ class __$$NoteBookImplCopyWithImpl<$Res>
 class _$NoteBookImpl implements _NoteBook {
   const _$NoteBookImpl(
       {required this.noteBookId,
+      final List<String> noteIds = const [],
       required this.name,
       required this.color,
       @JsonKey(includeIfNull: false) this.createdAt,
       @JsonKey(includeIfNull: false) this.updatedAt,
-      @JsonKey(includeIfNull: false) this.emoji});
+      @JsonKey(includeIfNull: false) this.emoji})
+      : _noteIds = noteIds;
 
   factory _$NoteBookImpl.fromJson(Map<String, dynamic> json) =>
       _$$NoteBookImplFromJson(json);
 
   @override
   final String noteBookId;
+  final List<String> _noteIds;
+  @override
+  @JsonKey()
+  List<String> get noteIds {
+    if (_noteIds is EqualUnmodifiableListView) return _noteIds;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_noteIds);
+  }
+
   @override
   final String name;
   @override
@@ -195,7 +219,7 @@ class _$NoteBookImpl implements _NoteBook {
 
   @override
   String toString() {
-    return 'NoteBook(noteBookId: $noteBookId, name: $name, color: $color, createdAt: $createdAt, updatedAt: $updatedAt, emoji: $emoji)';
+    return 'NoteBook(noteBookId: $noteBookId, noteIds: $noteIds, name: $name, color: $color, createdAt: $createdAt, updatedAt: $updatedAt, emoji: $emoji)';
   }
 
   @override
@@ -205,6 +229,7 @@ class _$NoteBookImpl implements _NoteBook {
             other is _$NoteBookImpl &&
             (identical(other.noteBookId, noteBookId) ||
                 other.noteBookId == noteBookId) &&
+            const DeepCollectionEquality().equals(other._noteIds, _noteIds) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.color, color) || other.color == color) &&
             (identical(other.createdAt, createdAt) ||
@@ -217,7 +242,14 @@ class _$NoteBookImpl implements _NoteBook {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, noteBookId, name, color, createdAt, updatedAt, emoji);
+      runtimeType,
+      noteBookId,
+      const DeepCollectionEquality().hash(_noteIds),
+      name,
+      color,
+      createdAt,
+      updatedAt,
+      emoji);
 
   @JsonKey(ignore: true)
   @override
@@ -236,6 +268,7 @@ class _$NoteBookImpl implements _NoteBook {
 abstract class _NoteBook implements NoteBook {
   const factory _NoteBook(
       {required final String noteBookId,
+      final List<String> noteIds,
       required final String name,
       required final int color,
       @JsonKey(includeIfNull: false) final DateTime? createdAt,
@@ -247,6 +280,8 @@ abstract class _NoteBook implements NoteBook {
 
   @override
   String get noteBookId;
+  @override
+  List<String> get noteIds;
   @override
   String get name;
   @override
